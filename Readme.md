@@ -6,4 +6,4 @@ python, numpy, matplotlib, pandas, streamlit, sqlite3
 
 ### How to run
 
-streamlit run database.py
+`streamlit run database.py`
