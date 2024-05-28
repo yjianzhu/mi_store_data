@@ -46,3 +46,10 @@ CREATE TABLE IF NOT EXISTS off_shelf_items (
 )
 ''')
 ```
+
+
+### 数据细节
+小米商城对于很多商品采用叠加形式，例如小米14的总评论数是包含了小米14 Pro的评论数的，偶尔包括14ultra。
+
+小米14ultra的具体数据可以用'Xiaomi 14 Ultra 12GB+256GB专业影像套装' 减去'Xiaomi 14 Ultra 专业影像套装'
+

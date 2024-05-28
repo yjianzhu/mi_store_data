@@ -78,6 +78,9 @@ def plot_items(names):
     counts = []
 
     for name in names:
+        if name == "Xiaomi 14 Ultra":
+            counts.append(get_mi_14_ultra())
+            continue
         all_data = query_comments_by_name(name)
         df = pandas.DataFrame(all_data, columns=['id', 'item_id', 'date', 'name', 'total_comments'])
         # 向 counts 中添加最新的评论数
@@ -109,3 +112,17 @@ def plot_items(names):
     plt.xticks(rotation=45)
     plt.tight_layout()
     return fig
+
+
+def get_mi_14_ultra():
+
+    mi14_ultra_and_photography = query_comments_by_name("Xiaomi 14 Ultra 12GB+256GB专业影像套装")
+    df = pandas.DataFrame(mi14_ultra_and_photography, columns=['id', 'item_id', 'date', 'name', 'total_comments'])
+    mi14_ultra_and_photography = df['total_comments'].iloc[-1]
+
+    mi_photography = query_comments_by_name("Xiaomi 14 Ultra 专业影像套装")
+    df = pandas.DataFrame(mi_photography, columns=['id', 'item_id', 'date', 'name', 'total_comments'])
+    mi_photography = df['total_comments'].iloc[-1]
+
+    mi14_ultra = mi14_ultra_and_photography - mi_photography
+    return mi14_ultra
