@@ -42,6 +42,7 @@ def plot_daily_data_by_name(name):
     # 绘制双轴图，横轴为日期，左轴为单日数据，右轴为累计数据
     dates = df['date']
     daily_data = df['total_comments'].diff().fillna(0)
+    daily_data = daily_data.astype(int)
     cumulative_data = df['total_comments']
 
     fig, ax1 = plt.subplots()
